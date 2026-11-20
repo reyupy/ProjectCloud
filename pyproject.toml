@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "cloudru-monitor"
+version = "0.1.0"
+description = "Read-only OpenSearch error triage CLI"
+requires-python = ">=3.11"
+dependencies = ["pydantic>=2.10,<3"]
+
+[project.optional-dependencies]
+test = ["pytest>=8,<10"]
+
+[project.scripts]
+cloudru-monitor = "cloudru_monitor.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["cloudru_monitor*"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
